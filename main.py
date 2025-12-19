@@ -62,3 +62,15 @@ def AfficherLargeur(racine):
         for f in Noeud.fils:
             file.append(f)
     print 
+
+
+#calcule de la hauteur d'un arbre 
+
+def CalculeHauteur(Noeud):
+    if Noeud is None: 
+        return -1 
+    
+    if not Noeud.fils: 
+        return 0
+    
+    return 1 + max(CalculeHauteur(f) for f in Noeud.fils)
