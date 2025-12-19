@@ -1,8 +1,12 @@
+from tkinter.filedialog import test
+
+
 class Noeud: 
     def __init__(self, info):
         self.info= info #information du noued
         self.fils= []   #listes des fils 
         self.pere= None #pointeur vers le pere papa 
+
 
 #construction d'un arbre exemple 
 
@@ -24,6 +28,7 @@ def constArbreA():
     return r 
 
 
+
 #affichage d'arbre en parcour profondeur 
 
 def AfficherProfondeur(Noeud, niveau=0):
@@ -34,7 +39,26 @@ def AfficherProfondeur(Noeud, niveau=0):
         AfficherProfondeur(f, niveau+1) 
 
 
-#test 
+"""test 
 if __name__ == "__main__": 
     racine = constArbreA() 
     AfficherProfondeur(racine)
+""" 
+
+
+#function pour le parcour en largeur 
+
+from collections import deque
+def AfficherLargeur(racine): 
+    if racine is None: 
+        return
+
+    file=deque([racine])
+
+    while file:
+        Noeud = file.popleft()
+        print(Noeud.info, end=" ")
+
+        for f in Noeud.fils:
+            file.append(f)
+    print 
