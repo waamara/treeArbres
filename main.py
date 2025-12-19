@@ -1,5 +1,5 @@
 class Noeud: 
-    def __init__(self, info) 
+    def __init__(self, info):
         self.info= info #information du noued
         self.fils= []   #listes des fils 
         self.pere= None #pointeur vers le pere papa 
@@ -35,6 +35,6 @@ def AfficherProfondeur(Noeud, niveau=0):
 
 
 #test 
-if __name__ == "main": 
+if __name__ == "__main__": 
     racine = constArbreA() 
     AfficherProfondeur(racine)
