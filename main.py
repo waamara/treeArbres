@@ -32,3 +32,9 @@ def AfficherProfondeur(Noeud, niveau=0):
     print(" " * niveau * 2 + Noeud.info) 
     for f in Noeud.fils : 
         AfficherProfondeur(f, niveau+1) 
+
+
+#test 
+if __name__ == "main": 
+    racine = constArbreA() 
+    AfficherProfondeur(racine)
