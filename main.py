@@ -103,4 +103,25 @@ def RechercheNoeud (Noeud, info):
         if res is not None: 
             return res 
         
-    return None 
+    return None  
+
+
+# funcction Inserer un noeud dans l'arbre 
+
+def Insertnoeud (racine , info_parent , info_new):
+    parent = RechercheNoeud(racine , info_parent)
+    
+    if parent is None: 
+        print("Parent non trouvé") 
+        return 
+    
+    if len(parent.fils) >=4: 
+        print ("Le parent a déja 4 fils ")
+        return 
+    
+    new = Noeud(info_new)
+    new.pere = parent 
+    parent.fils.append(new) 
+
+    print(f" Noeud '{info_new}' inséré sous le parent '{info_parent}'")
+
