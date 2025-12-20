@@ -76,7 +76,7 @@ def CalculeHauteur(Noeud):
     return 1 + max(CalculeHauteur(f) for f in Noeud.fils) 
 
 
-#test2 
+"""test2 
 
 if __name__ == "__main__": 
     racine = constArbreA() 
@@ -85,4 +85,6 @@ if __name__ == "__main__":
     print("\n Affichage en Largeur :") 
     AfficherLargeur(racine) 
     print("\n la Hauteur de l'arbre est : ", CalculeHauteur(racine)) 
+
+""" 
 
