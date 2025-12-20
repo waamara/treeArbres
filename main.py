@@ -125,3 +125,18 @@ def Insertnoeud (racine , info_parent , info_new):
 
     print(f" Noeud '{info_new}' inséré sous le parent '{info_parent}'")
 
+
+
+# test 3
+
+if __name__ == "__main__": 
+    racine = constArbreA() 
+
+    print ("Arbre initial :" ) 
+    AfficherProfondeur(racine) 
+
+    Insertnoeud(racine , "B", "X" ) 
+    print ("\n Arbre aprés insertion :") 
+
+    AfficherProfondeur(racine) 
+ 
