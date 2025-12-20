@@ -88,3 +88,19 @@ if __name__ == "__main__":
 
 """ 
 
+
+# function qui recherhe un noeud dans l'arbre 
+
+def RechercheNoeud (Noeud, info):  
+    if Noeud is None:  
+        return None 
+    
+    if Noeud.info == info: 
+        return Noeud  
+    
+    for f in Noeud.fils: 
+        res= RechercheNoeud(f,info)
+        if res is not None: 
+            return res 
+        
+    return None 
