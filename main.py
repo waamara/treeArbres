@@ -195,7 +195,7 @@ if __name__ == ("__main__"):
     
 """    
 
-# Affichege d'un sous arbre 
+# function Affichege d'un sous arbre 
 
 def AfficcherSousArbre(racine,info): 
     noeud = RechercheNoeud(racine, info) 
@@ -206,4 +206,28 @@ def AfficcherSousArbre(racine,info):
     
     print( f"Sous arbre a partir de '{info}': ")
     AfficherProfondeur(noeud) 
+
+
+#  function Vérifier si un Arbre estt complet
+
+def IsArbreComplet(racine): 
+    if racine is None: 
+        return True 
+    
+    file = deque([racine])
+    trou = False 
+
+    while file: 
+        noeud = file.popleft() 
+
+        for f in noeud.fils: 
+            if f is None: 
+                trou = true 
+            else: 
+                if trou: 
+                    return False
+                file.appen(f)
+    return True
+
+
 
