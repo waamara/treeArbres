@@ -226,7 +226,7 @@ def IsArbreComplet(racine):
             else: 
                 if trou: 
                     return False
-                file.appen(f)
+                file.append(f)
     return True
 
 
@@ -260,4 +260,18 @@ def PGdArbreComplet(racine):
     parcourir(racine) 
     return best 
 
- 
+
+
+# test 5 
+
+if __name__ == ("__main__"): 
+    racine = constArbreA() 
+
+    AfficcherSousArbre(racine, "A") 
+
+    print("\n Arbre Complet ou non  :  ", IsArbreComplet(racine)) 
+
+    sos = PGdArbreComplet(racine) 
+if sos : 
+    print ("\n Plus grand sous arbre complet : ")
+    AfficherProfondeur(sos)
