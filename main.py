@@ -231,3 +231,33 @@ def IsArbreComplet(racine):
 
 
 
+# function qui trouve le plus grand sous arbre complet 
+#on doit d'abord trouver la taille de larbre 
+#  
+def TailleArbre(noeud): 
+    if noeud is None: 
+        return 0  
+    return 1 + sum(TailleArbre(f) for f in noeud.fils)
+
+def PGdArbreComplet(racine): 
+    best = None 
+    max_size = 0 
+
+    def parcourir(noeud): 
+        nonlocal best, max_size
+        if noeud is None: 
+            return
+        
+        if IsArbreComplet(noeud): 
+            size = TailleArbre(noeud) 
+            if size > max_size: 
+                max_size = size 
+                best = noeud 
+
+        for f in noeud.fils: 
+            parcourir(f) 
+
+    parcourir(racine) 
+    return best 
+
+ 
