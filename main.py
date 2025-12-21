@@ -153,4 +153,7 @@ def ModifyNoeud (racine , anc_info , nov_info):
     noeud.info=nov_info 
     print(f"Noeud '{anc_info}' modifié en '{nov_info}'" ) 
 
-    
+
+# Function qui Supprime un Noeud 
+
+ 
