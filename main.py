@@ -127,7 +127,7 @@ def Insertnoeud (racine , info_parent , info_new):
 
 
 
-# test 3
+""" test 3
 
 if __name__ == "__main__": 
     racine = constArbreA() 
@@ -139,4 +139,4 @@ if __name__ == "__main__":
     print ("\n Arbre aprés insertion :") 
 
     AfficherProfondeur(racine) 
- 
+"""
