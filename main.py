@@ -142,3 +142,15 @@ if __name__ == "__main__":
 """ 
 
 # funtion pour moddiifier un Noeud 
+
+def ModifyNoeud (racine , anc_info , nov_info):
+    noeud = RechercheNoeud(racine,anc_info)
+
+    if noeud is None: 
+        print("Noeud non trouvé") 
+        return
+    
+    noeud.info=nov_info 
+    print(f"Noeud '{anc_info}' modifié en '{nov_info}'" ) 
+
+    
