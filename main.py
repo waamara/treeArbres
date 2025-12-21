@@ -194,3 +194,16 @@ if __name__ == ("__main__"):
     AfficherProfondeur(racine) 
     
 """    
+
+# Affichege d'un sous arbre 
+
+def AfficcherSousArbre(racine,info): 
+    noeud = RechercheNoeud(racine, info) 
+
+    if noeud is None: 
+        print("Noeud non trouvé") 
+        return 
+    
+    print( f"Sous arbre a partir de '{info}': ")
+    AfficherProfondeur(noeud) 
+
