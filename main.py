@@ -139,4 +139,6 @@ if __name__ == "__main__":
     print ("\n Arbre aprés insertion :") 
 
     AfficherProfondeur(racine) 
-"""
+""" 
+
+# funtion pour moddiifier un Noeud 
