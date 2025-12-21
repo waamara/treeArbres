@@ -176,7 +176,7 @@ def SupprimNoeud(racine , info):
 
     print (f" Noeud '{info}' supprimé") 
 
-# test 4 
+""" test 4 
 
 if __name__ == ("__main__"):  
     racine = constArbreA() 
@@ -184,7 +184,7 @@ if __name__ == ("__main__"):
     print("Arbre initial:")  
     AfficherProfondeur(racine) 
 
-    ModifyNoeud(racine, "C","M")
+    ModifyNoeud(racine, "X","M")
     print("\n Aprés la  Mofification: ") 
     AfficherProfondeur(racine) 
 
@@ -193,4 +193,4 @@ if __name__ == ("__main__"):
     print("\n Aprés la suppression:")
     AfficherProfondeur(racine) 
     
-     
+"""    
