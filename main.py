@@ -305,4 +305,6 @@ def TransformEnBinaire(noeud):
 
     return binaire 
 
- 
+
+
+# function pour l affichage de un arbr binaire  
