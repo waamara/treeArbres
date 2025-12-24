@@ -261,8 +261,7 @@ def PGdArbreComplet(racine):
     return best 
 
 
-
-# test 5 
+""" test 5 
 
 if __name__ == ("__main__"): 
     racine = constArbreA() 
@@ -275,3 +274,4 @@ if __name__ == ("__main__"):
 if sos : 
     print ("\n Plus grand sous arbre complet : ")
     AfficherProfondeur(sos)
+"""
