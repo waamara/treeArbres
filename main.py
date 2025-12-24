@@ -321,3 +321,12 @@ def AffichageBinaire(noeud, niveau=0):
 
 # test 6 
 
+if __name__ == ("__main__"): 
+    racine = constArbreA() 
+
+    print("Arbre initial:")  
+    AfficherProfondeur(racine) 
+
+    binaire = TransformEnBinaire(racine) 
+    print("\nArbre binaire transformé:") 
+    AffichageBinaire(binaire) 
