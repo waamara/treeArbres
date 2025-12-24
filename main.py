@@ -310,7 +310,7 @@ def TransformEnBinaire(noeud):
 # function pour l affichage de un arbr binaire 
 
 def AffichageBinaire(noeud, niveau=0): 
-    if noud is None: 
+    if noeud is None: 
         return 
 
     print("  " * niveau * 2 + str(noeud.info))
