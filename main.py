@@ -1,3 +1,8 @@
+import time 
+
+
+
+
 from tkinter.filedialog import test
 
 
@@ -329,4 +334,11 @@ if __name__ == ("__main__"):
 
     binaire = TransformEnBinaire(racine) 
     print("\nArbre binaire transformé:") 
-    AffichageBinaire(binaire) 
+    AffichageBinaire(binaire)  
+
+
+
+
+# Menu de l'application 
+
+def menu (): 
