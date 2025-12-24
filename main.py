@@ -288,4 +288,21 @@ class Noeudbinaire:
         self.gauche = None 
         self.droit = None 
 
-         
+
+def TransformEnBinaire(noeud): 
+    if Noeud is None: 
+        return None
+    
+    binaire = Noeudbinaire(noeud.info)  
+
+    if noeud.fils: 
+        binaire.gauche = TransformEnBinaire(noeud.fils[0]) 
+
+        courant = binaire.gauche 
+        for f in noeud.fils[1:]: 
+            courant.droit = TransformEnBinaire(f) 
+            courant = courant.droit 
+
+    return binaire 
+
+ 
