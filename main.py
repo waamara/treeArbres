@@ -318,3 +318,6 @@ def AffichageBinaire(noeud, niveau=0):
     AffichageBinaire(noeud.droit, niveau + 1)  
 
 
+
+# test 6 
+
