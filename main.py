@@ -342,3 +342,63 @@ if __name__ == ("__main__"):
 # Menu de l'application 
 
 def menu (): 
+    print(" \n <<<< ---Menu--- >>> \n  ") 
+    print(" 1- Afficher l'arbre binaire en profondeur ") 
+    print(" 2- Afficher l'arbre binaire en largeur ")  
+    print(" 3- Insérer un noeud  ") 
+    print(" 4- Modifier un noeud   ") 
+    print(" 5- Supprimer un noeud ") 
+    print(" 6- Afficher un sous arbre  ") 
+    print(" 7- Hauteur de l'arbre ") 
+    print(" 8- Vérifier si  l'arbre est Complet ") 
+    print(" 9- Transformer un arbre binaire  ") 
+    print(" 0- Quitter  ") 
+    
+    choix = input(" Votre Choix : ") 
+    debut = time.time() 
+
+    if choix == "1": 
+        AfficherProfondeur(racine) 
+
+    elif choix == "2": 
+        AfficherProfondeur(racine) 
+    
+    elif choix == "3":
+            p = input("Parent : ")
+            n = input("Nouveau noeud : ")
+            Insertnoeud(racine, p, n)
+
+    elif choix == "4":
+            a = input("Ancienne info : ")
+            n = input("Nouvelle info : ")
+            ModifyNoeud(racine, a, n)
+
+    elif choix == "5":
+            x = input("Noeud à supprimer : ")
+            SupprimNoeud(racine, x)
+
+    elif choix == "6":
+            x = input("Racine du sous-arbre : ")
+            AfficcherSousArbre(racine, x)
+
+    elif choix == "7":
+            h = CalculeHauteur(racine)
+            print("Hauteur =", h)
+
+    elif choix == "8":
+            print("Arbre complet ?", IsArbreComplet(racine))
+
+    elif choix == "9":
+            binaire = TransformEnBinaire(racine)
+            print("Arbre binaire :")
+            AffichageBinaire(binaire)
+
+    elif choix == "0":
+        print("fin")
+        break 
+
+    else:
+            print("Choix invalide") 
+
+    fin = time.time() 
+    print (f" Temps d'execution : {fin - debut:6f} secondes")
