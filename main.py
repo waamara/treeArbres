@@ -266,6 +266,8 @@ def PGdArbreComplet(racine):
 if __name__ == ("__main__"): 
     racine = constArbreA() 
 
+
+
     AfficcherSousArbre(racine, "A") 
 
     print("\n Arbre Complet ou non  :  ", IsArbreComplet(racine)) 
@@ -275,3 +277,15 @@ if sos :
     print ("\n Plus grand sous arbre complet : ")
     AfficherProfondeur(sos)
 """
+
+
+# fonction qui tronsforme un arbre general en  arbre binaire  
+# on deefinit un new type of noeud 
+
+class Noeudbinaire: 
+    def __init__(self, info): 
+        self.info = info 
+        self.gauche = None 
+        self.droit = None 
+
+         
