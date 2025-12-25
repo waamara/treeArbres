@@ -211,24 +211,27 @@ def AfficcherSousArbre(racine,info):
 
 #  function Vérifier si un Arbre estt complet
 
-def IsArbreComplet(racine): 
-    if racine is None: 
-        return True 
-    
+def IsArbreComplet(racine, n=4):
+    if racine is None:
+        return True
+
     file = deque([racine])
-    trou = False 
+    trou = False
 
-    while file: 
-        noeud = file.popleft() 
+    while file:
+        noeud = file.popleft()
 
-        for f in noeud.fils: 
-            if f is None: 
-                trou = True  
-            else: 
-                if trou: 
-                    return False
-                file.append(f)
+        if len(noeud.fils) < n:
+            trou = True
+
+        if trou and noeud.fils:
+            return False
+
+        for f in noeud.fils:
+            file.append(f)
+
     return True
+
 
 
 
@@ -314,7 +317,7 @@ def AffichageBinaire(noeud, niveau=0):
     if noeud is None: 
         return 
 
-    print("  " * niveau * 2 + str(noeud.info))
+    print("  " * niveau + str(noeud.info))
     AffichageBinaire(noeud.gauche, niveau + 1) 
     AffichageBinaire(noeud.droit, niveau + 1)  
 
@@ -409,6 +412,8 @@ def Menu():
         print("7. Hauteur de l'arbre")
         print("8. Vérifier si l'arbre est complet")
         print("9. Transformer en arbre binaire")
+        print("10. Chemin entre deux noeuds")
+        print("11. Extraire un sous-arbre")
         print("0. Quitter")
 
         choix = input("Votre choix : ")
@@ -448,6 +453,18 @@ def Menu():
             binaire = TransformEnBinaire(racine)
             print("Arbre binaire :")
             AffichageBinaire(binaire)
+        elif choix == "10":
+            a = input("Noeud A : ")
+            b = input("Noeud B : ")
+            CheminEntreDeuxNoeuds(racine, a, b)
+
+        elif choix == "11":
+            x = input("Racine du sous-arbre : ")
+            sous = ExtraireSousArbre(racine, x)
+            if sous:
+                print("Sous-arbre extrait :")
+                AfficherProfondeur(sous)
+
 
         elif choix == "0":
             print("Au revoir !")
