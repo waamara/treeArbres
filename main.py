@@ -332,8 +332,64 @@ if __name__ == ("__main__"):
     print("\nArbre binaire transformé:") 
     AffichageBinaire(binaire)  
 """
-#cheemin entre 2 noeud 
 
+
+#chemin entre 2 noeud 
+
+
+def CheminRacine(noeud):
+    chemin = []
+    while noeud:
+        chemin.append(noeud)
+        noeud = noeud.pere
+    return chemin[::-1]  # racine → noeud
+
+
+def CheminEntreDeuxNoeuds(racine, info_a, info_b):
+    a = RechercheNoeud(racine, info_a)
+    b = RechercheNoeud(racine, info_b)
+
+    if a is None or b is None:
+        print("Un des noeuds n'existe pas")
+        return
+
+    chemin_a = CheminRacine(a)
+    chemin_b = CheminRacine(b)
+
+    i = 0
+    while i < min(len(chemin_a), len(chemin_b)) and chemin_a[i] == chemin_b[i]:
+        i += 1
+
+    # chemin a → ancêtre commun → b
+    chemin_final = chemin_a[i-1:][::-1] + chemin_b[i:]
+
+    print("Chemin de", info_a, "vers", info_b, ":")
+    print(" -> ".join(n.info for n in chemin_final))
+
+
+# extracct dun sous arbre 
+
+
+def CopierSousArbre(noeud):
+    if noeud is None:
+        return None
+
+    nouveau = Noeud(noeud.info)
+    for f in noeud.fils:
+        fils_copie = CopierSousArbre(f)
+        fils_copie.pere = nouveau
+        nouveau.fils.append(fils_copie)
+
+    return nouveau
+
+
+def ExtraireSousArbre(racine, info):
+    noeud = RechercheNoeud(racine, info)
+    if noeud is None:
+        print("Noeud non trouvé")
+        return None
+
+    return CopierSousArbre(noeud)
 
 
 
