@@ -502,3 +502,26 @@ def Menu():
 
 if __name__ == "__main__":
     Menu()
+
+
+    def EvaluationExperimentale():
+    tailles = [10, 20, 30, 40, 50, 100]
+
+    print("\n====== ÉVALUATION EXPÉRIMENTALE ======")
+    print(f"{'Nb noeuds':<12} | {'Arbre complet (s)':<20} | {'Sous-arbre complet max (s)'}")
+    print("-" * 60)
+
+    for n in tailles:
+        arbre = ConstruireArbreAutomatique(n)
+
+        # Temps IsArbreComplet
+        debut = time.time()
+        IsArbreComplet(arbre)
+        t1 = time.time() - debut
+
+        # Temps PGdArbreComplet
+        debut = time.time()
+        PGdArbreComplet(arbre)
+        t2 = time.time() - debut
+
+        print(f"{n:<12} | {t1:<20.6f} | {t2:.6f}")
