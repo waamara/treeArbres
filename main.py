@@ -437,6 +437,7 @@ def Menu():
         print("9. Transformer en arbre binaire")
         print("10. Chemin entre deux noeuds")
         print("11. Extraire un sous-arbre")
+        print("12. Évaluation expérimentale (complexité)")
         print("0. Quitter")
 
         choix = input("Votre choix : ")
