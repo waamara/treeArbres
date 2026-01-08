@@ -488,6 +488,9 @@ def Menu():
             if sous:
                 print("Sous-arbre extrait :")
                 AfficherProfondeur(sous)
+        
+        elif choix == "12":
+            EvaluationExperimentale()
 
 
         elif choix == "0":
