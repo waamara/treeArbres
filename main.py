@@ -29,6 +29,29 @@ def constArbreA():
     return r 
 
 
+def ConstruireArbreAutomatique(nb_noeuds, n=4):
+    racine = Noeud("R")
+    file = deque([racine])
+    compteur = 1
+
+    while compteur < nb_noeuds:
+        courant = file.popleft()
+
+        for i in range(n):
+            if compteur >= nb_noeuds:
+                break
+
+            nouveau = Noeud(f"N{compteur}")
+            nouveau.pere = courant
+            courant.fils.append(nouveau)
+
+            file.append(nouveau)
+            compteur += 1
+
+    return racine
+
+
+
 
 #affichage d'arbre en parcour profondeur 
 
