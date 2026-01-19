@@ -271,26 +271,39 @@ def TailleArbre(noeud):
         return 0  
     return 1 + sum(TailleArbre(f) for f in noeud.fils)
 
-def PGdArbreComplet(racine): 
-    best = None 
-    max_size = 0 
+def PGdArbreComplet(racine, n=4):
+    best = None
+    max_size = 0
 
-    def parcourir(noeud): 
+    def parcourir(noeud):
         nonlocal best, max_size
-        if noeud is None: 
-            return
-        
-        if IsArbreComplet(noeud): 
-            size = TailleArbre(noeud) 
-            if size > max_size: 
-                max_size = size 
-                best = noeud 
+        if noeud is None:
+            return True, 0  # (est_complet, taille)
 
-        for f in noeud.fils: 
-            parcourir(f) 
+        taille = 1
+        complet = True
 
-    parcourir(racine) 
-    return best 
+        # tous les fils doivent être complets
+        for f in noeud.fils:
+            c, t = parcourir(f)
+            if not c:
+                complet = False
+            taille += t
+
+        # vérifier la condition de complétude locale
+        if complet:
+            if not IsArbreComplet(noeud, n):
+                complet = False
+
+        if complet and taille > max_size:
+            max_size = taille
+            best = noeud
+
+        return complet, taille
+
+    parcourir(racine)
+    return best
+
 
 
 """ test 5 
