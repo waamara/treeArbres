@@ -240,16 +240,20 @@ def IsArbreComplet(racine, n=4):
         return True
 
     file = deque([racine])
-    trou = False
+    fin = False  # indique qu'on a rencontré un noeud incomplet
 
     while file:
         noeud = file.popleft()
 
-        if len(noeud.fils) < n:
-            trou = True
-
-        if trou and noeud.fils:
+        # si un noeud incomplet a déjà été rencontré,
+        # aucun noeud suivant ne doit avoir des fils
+        if fin and noeud.fils:
             return False
+
+        # si le noeud n'a pas exactement n fils,
+        # alors les noeuds suivants doivent être des feuilles
+        if len(noeud.fils) < n:
+            fin = True
 
         for f in noeud.fils:
             file.append(f)
