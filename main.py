@@ -181,25 +181,29 @@ def ModifyNoeud (racine , anc_info , nov_info):
 
 # Function qui Supprime un Noeud 
 
-def SupprimNoeud(racine , info):
+def SupprimNoeud(racine, info):
     noeud = RechercheNoeud(racine, info)
 
-    if noeud is None: 
-        print("Noeud non trouvé") 
-        return 
-    
-    if noeud.pere is None: 
-        print("Impossibl d supprimer la racin") 
-        return 
-    
-    if noeud.fils: 
-        print(" Impossible de supprimer ccar le Noeud a des fils  ") 
+    if noeud is None:
+        print("Noeud non trouvé")
         return
-    
-    pere = noeud.pere 
-    pere.fils.remove(noeud) 
 
-    print (f" Noeud '{info}' supprimé") 
+    if noeud.pere is None:
+        print("Impossible de supprimer la racine")
+        return
+
+    pere = noeud.pere
+
+    # rattacher les fils du noeud à son père
+    for f in noeud.fils:
+        f.pere = pere
+        pere.fils.append(f)
+
+    # supprimer le noeud de la liste des fils du père
+    pere.fils.remove(noeud)
+
+    print(f"Noeud '{info}' supprimé (fils réattachés au parent)")
+
 
 """ test 4 
 
